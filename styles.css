@@ -21,3 +21,24 @@
 .menu.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:1000px){header nav{display:flex;position:absolute;top:72px;left:18px;right:18px;flex-direction:column;gap:0;padding:12px;background:#0c0910f5;border:1px solid #5c234b;border-radius:16px;box-shadow:0 20px 55px #000a,0 0 30px #ff008a18;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s ease;z-index:30}header nav.open{opacity:1;visibility:visible;transform:none}header nav a{padding:15px 16px;border-bottom:1px solid #2d202a;font-size:14px}header nav a:last-child{border-bottom:0}.menu{display:flex}}
 @media(max-width:620px){.turntable{width:86%;height:91%}.hologram-model img{object-fit:contain}.degree{bottom:3%}}
+
+/* Ajuste final do holograma mobile/desktop */
+.degree{display:none!important}
+.hud1{top:2%;left:4%;transform:translateY(-8px)}
+.turntable{animation:holoExhibit 3.8s cubic-bezier(.45,.05,.55,.95) infinite;transform-origin:50% 58%}
+.hologram-model img{animation:holoFloat 2.8s ease-in-out infinite;transform-origin:50% 58%}
+.r1{animation:ring 3.8s linear infinite}
+.r2{animation:ring 2.8s linear infinite reverse}
+@keyframes holoExhibit{
+  0%,100%{transform:translateX(-20px) rotateY(-14deg) rotateZ(-.8deg) scale(.985)}
+  25%{transform:translateX(0) rotateY(0deg) rotateZ(0) scale(1.015)}
+  50%{transform:translateX(20px) rotateY(14deg) rotateZ(.8deg) scale(.985)}
+  75%{transform:translateX(0) rotateY(0deg) rotateZ(0) scale(1.015)}
+}
+@keyframes holoFloat{0%,100%{translate:0 -4px}50%{translate:0 5px}}
+@media(max-width:620px){
+  .hud1{top:-4%;left:0;right:0;margin:auto;width:86%;transform:none}
+  .scan-frame{padding-top:78px}
+  .turntable{width:84%;height:84%;margin-top:38px}
+  .r1{bottom:2%}.r2{bottom:7%}
+}
